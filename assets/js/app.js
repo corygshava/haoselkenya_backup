@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    setupExtras();
     setupPopups();
 })
 
@@ -134,4 +135,129 @@ function gohere(link){
 
 function encodetxt(txt) {
     return encodeURIComponent(txt);
+}
+
+function setupExtras() {
+    let xtra = `
+        <!-- the popup -->
+        <div class="w3-container">
+            <div id="id01" class="w3-modal">
+                <button onclick="document.getElementById('id01').style.display = 'none'" class="w3-right w3-button w3-black"><i class="fa fa-times"></i></button>
+                <div class="w3-modal-content w3-animate-zoom">
+                    <div class="collection auto_repair">
+                        <h1>Auto repair</h1>
+                        <div class="holder w3-row">
+                            <div class="w3-card imgguy">
+                                <img src="images/auto(66).jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Spray booth</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/cccccccc.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Compressor</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/zzzzzzzzz.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Auto Body Frame Machine</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/auto (5).jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Two post</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/wheel aa.jpg" style="width:100%">
+                                <div class="w3-container">
+                                            <h5>Wheel alignment/Fourpost</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="collection Construction_Machinery">
+                        <h1>woodwork</h1>
+                        <div class="holder w3-row">
+                            <div class="w3-card imgguy">
+                                <img src="images/band sawmail.png" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Band sawmail</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/woodworking2.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Woodworking Blade Sharpener</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/wood-working-heavy-duty-single-webp.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>wood-working-heavy-duty-single</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/wood-cutting-panel-saw114.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>wood-cutting-panel saw</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/wod.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Edge Banding Machine</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collection Woodwork">
+                        <h1>construction Machinery</h1>
+                        <div class="holder w3-row">
+                            <div class="w3-card imgguy">
+                                <img src="images/zpppl.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Panel lifting truck</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/zzblock.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Block Making Machine</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/zzmortar-mixer-machine.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Mortar Mixer</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/zzroller.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Vibratory Roller</h5>
+                                </div>
+                            </div>
+                            <div class="w3-card imgguy">
+                                <img src="images/small-slabs-lifting-crane.jpg" style="width:100%">
+                                <div class="w3-container">
+                                    <h5>Lift crane</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="callus">
+                        <a href="tel:254757748894">lets talk</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.innerHTML += xtra;
 }
