@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>HaoSail Kenya</title>
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/w3.css">
+
+	<style>
+		*{
+			box-sizing: border-box;
+			transition: 0.4s ease-out;
+		}
+
+		html{
+			scroll-behavior: smooth;
+		}
+		.box img{
+			max-width: 100%;
+		}
+		.box:hover{
+			box-shadow: 0 0 12px cyan;
+		}
+
+		.w3-modal-content{
+			background-color: #333;
+			padding: 20px;
+			text-align: center;
+		}
+		.collection{
+			display: none;
+			/* background-color: rgba(0,0,0,0.4); */
+		}
+		.collection img{
+			width: 100%;
+			aspect-ratio: 16/9;
+		}
+		.collection .imgguy{
+			margin: 12px 1%;
+			width: 30%;
+			display: inline-block;
+			/* background-color: rgba(0,0,0,0.7); */
+			background-color: #222;
+		}
+		.collection .imgguy:hover{
+			scale: 1.1;
+			box-shadow: 0 0 12px cyan;
+		}
+		.callus{
+			padding: 20px 12px;
+		}
+		.callus a,.themelink{
+			display: inline-block;
+			padding: 8px 16px;
+			background-color: #1122aa;
+			color: #fff;
+		}
+
+		img.footerimg {
+			width: 300px;
+			height: auto;
+			border-radius: 15px;
+			display: inline-block;
+			margin: 20px 0 40px 0;
+			filter: saturate(0.5);
+		}
+		img.footerimg:hover {
+			filter: saturate(1.1);
+			scale: 1.1;
+		}
+		.outinfo{
+			width: 80%;
+			max-width: 400px;
+			display: inline-block;
+		}
+		.outinfo .icon{
+			text-align: center;
+			font-size: 17px;
+		}
+		.outinfo .info{
+			text-align: left;
+		}
+		.outinfo .w3-row{
+			padding: 12px 7px;
+		}
+
+		#main h1{
+			padding: 12px;
+			text-align: center;
+		}
+		#main .section{
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			align-items: center;
+			justify-content: center;
+			min-height: 40vh;
+		}
+	</style>
+</head>
+
+<body id="top">
+	<!-- Banner -->
+	<section id="banner" data-video="images/banner">
+		<div class="inner">
+			<header>
+				<img src="images/logo.png" alt="">
+				<h1>Welcome to haosail kenya</h1>
+				<p>Haosail Machinery Co., Ltd. Is a multinational company. We manufacture equipment and machines in China and open our own brand stores abroad to serve local customers. Not only do we sell auto repair equipment, but also provide customers with complete solutions for auto repair business, including project layout design., One-stop purchase, installation, training and after-sales service.</p>
+			</header>
+			<a href="#main" class="more">Learn More</a>
+		</div>
+	</section>
+
+	<!-- Main -->
+	 <div id="main">
+		<div class="inner">
+
+			<div id="aboutus" class="section">
+				<h1>About us</h1>
+				<p>Haosail Machinery Co., Ltd. Is a multinational company. We manufacture equipment and machines in China and open our own brand stores abroad to serve local customers. Not only do we sell auto repair equipment, but also provide customers with complete solutions for auto repair business, including project layout design., One-stop purchase, installation, training and after-sales service.</p>
+			</div>
+			<!-- Boxes -->
+			<h1>Our services</h1>
+			<div class="thumbnails">
+				<div class="box" onclick="openmodal(0)">
+					<img src="images/autollllll.jpg" alt="" width="600" height="338"></a>
+					<div class="inner">
+						<h3>Auto repair</h3>
+						<p> One-stop purchase, installation, training and after-sales service.</p>
+						
+					</div>
+				</div>
+
+				<div class="box" onclick="openmodal(2)">
+					<img src="images/ccc.jpg" alt="" width="600" height="338"></a>
+					<div class="inner">
+						<h3>Construction Machinery</h3>
+						<p>Machines That Build More Than Just Structures</p>
+					</div>
+				</div>
+
+				<div class="box" onclick="openmodal(1)">
+					<img src="images/woodw.jpg" alt="" width="600" height="338"></a>
+					<div class="inner">
+						<h3>WoodWork</h3>
+						<p> All our products meet international certification standards.</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="contacts" class="section">
+				<h1>Full catalogue</h1>
+				<p>click below to view the full catalogue</p>
+				<a href="images/HAOSAIL CATALOGUE 2024 .pdf" class="themelink" target="_blank">view catalogue</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<img src="images/drr2_CR.jpg" class="footerimg" alt="" width="600" height="338">
+				<br>
+				<span>
+					The director<BR>
+					JACKSON SAKWA
+				</span>
+				<h2> Haosail, worthy of your trust.</h2>
+				<p>wanna reach out, here's where to find us</p>
+				<div class="outinfo">
+					<hr>
+					<div class="w3-row">
+						<div class="w3-col s3 icons">
+							<div><i class="fa fa-building"></i></div>
+						</div>
+						<div class="w3-col s9 info">
+							<div>Lunga Lunga Plaza, Lokitaung Rd Warehouse No29, Nairobi</div>
+						</div>
+					</div>
+					<div class="w3-row">
+						<div class="w3-col s3 icons">
+							<div><i class="fa fa-phone"></i></div>
+						</div>
+						<div class="w3-col s9 info">
+							<div>+254 750 707 038</div>
+						</div>
+					</div>
+
+					<hr>
+				</div>
+				<p>OR click one below</p>
+
+				<ul class="icons">
+					<li><a href="https://api.whatsapp.com/send/?phone=254757748894&text=i%20wanted%20to%20ask%20about%20your%20products" class="icon fa-whatsapp"><span class="label">Instagram</span></a></li>
+					<li><a href="tel:254757748894" class="icon fa-phone"><span class="label"></span></a></li>
+				</ul>
+			</div>
+		</footer><div class="copyright">
+		Site made by: <a>HKK</a>
+	</div>
+
+	<!-- the popup -->
+	<div class="w3-container">
+		<div id="id01" class="w3-modal">
+			<button onclick="document.getElementById('id01').style.display = 'none'" class="w3-right w3-button w3-black"><i class="fa fa-times"></i></button>
+			<div class="w3-modal-content w3-animate-zoom">
+				<div class="collection auto_repair">
+					<h1>Auto repair</h1>
+					<div class="holder w3-row">
+						<div class="w3-card imgguy">
+							<img src="images/auto(66).jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Spray booth</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/cccccccc.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Compressor</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/zzzzzzzzz.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Auto Body Frame Machine</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/auto (5).jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Two post</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/wheel aa.jpg" style="width:100%">
+							<div class="w3-container">
+										<h5>Wheel alignment/Fourpost</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="collection Construction_Machinery">
+					<h1>woodwork</h1>
+					<div class="holder w3-row">
+						<div class="w3-card imgguy">
+							<img src="images/band sawmail.png" style="width:100%">
+							<div class="w3-container">
+								<h5>Band sawmail</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/woodworking2.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Woodworking Blade Sharpener</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/wood-working-heavy-duty-single-webp.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>wood-working-heavy-duty-single</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/wood-cutting-panel-saw114.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>wood-cutting-panel saw</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/wod.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Edge Banding Machine</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="collection Woodwork">
+					<h1>construction Machinery</h1>
+					<div class="holder w3-row">
+						<div class="w3-card imgguy">
+							<img src="images/zpppl.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Panel lifting truck</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/zzblock.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Block Making Machine</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/zzmortar-mixer-machine.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Mortar Mixer</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/zzroller.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Vibratory Roller</h5>
+							</div>
+						</div>
+						<div class="w3-card imgguy">
+							<img src="images/small-slabs-lifting-crane.jpg" style="width:100%">
+							<div class="w3-container">
+								<h5>Lift crane</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="callus">
+					<a href="tel:254757748894">lets talk</a>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+write me a js code that will select all elements called .imgguy. it will add a data-mylink property to each which will be a whatsapp link to be sent to a certain number
