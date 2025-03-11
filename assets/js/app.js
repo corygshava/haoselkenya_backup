@@ -142,7 +142,13 @@ function setupExtras() {
         <!-- the popup -->
         <div class="w3-container">
             <div id="id01" class="w3-modal">
-                <button onclick="document.getElementById('id01').style.display = 'none'" class="w3-right w3-button w3-black"><i class="fa fa-times"></i></button>
+                <button onclick="document.getElementById('id01').style.display = 'none'" class="w3-right w3-button w3-black" style="
+    z-index: 120;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    "><i class="fa fa-times"></i></button>
                 <div class="w3-modal-content w3-animate-zoom">
                     <div class="collection auto_repair">
                         <h1>Auto repair</h1>
