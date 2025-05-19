@@ -70,8 +70,8 @@ function animateheader(){
     let subtxt = header.querySelector('p');
     let texts = [
         {
-            heading: "Haosail",
-            text: "Worthy your trust"
+            heading: "Haosail Kenya",
+            text: "Worth your trust"
         },
 
     ];
