@@ -11,11 +11,23 @@
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
 	<style>
+		:root{
+			--themecolor: #1122aa;
+			--glowcolor: cyan;
+
+			--textcolor: #fff;
+			--alttextcolor: #111;
+		}
 		*{
 			box-sizing: border-box;
 			transition: 0.4s ease-out;
 		}
 
+		a{
+			text-decoration: none !important;
+			outline: none !important;
+			border: none;
+		}
 		html{
 			scroll-behavior: smooth;
 		}
@@ -100,17 +112,68 @@
 			justify-content: center;
 			min-height: 40vh;
 		}
+
+		/* the topnav */
+		.topnav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem 2rem;
+			background-color: #333;
+			color: #fff;
+			position: fixed;
+			top: 0;
+			z-index: 12;
+			width: 100%;
+			box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+		}
+		.topnav .site-title {
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+		.topnav .nav-links a {
+			margin: 0 1rem;
+			padding: 4px 12px;
+			border-radius: 8px;
+			color: #fff;
+			text-decoration: none;
+		}
+		.topnav .nav-links a:hover {
+			background-color: var(--themecolor);
+		}
+		.topnav .cta {
+			background-color: var(--themecolor);
+			padding: 0.5rem 1rem;
+			border-radius: 4px;
+			color: #fff;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.topnav .cta:hover {
+			background-color: var(--glowcolor);
+			color: var(--alttextcolor);
+		}
 	</style>
 </head>
 
 <body id="top">
+	<div class="topnav">
+		<div class="site-title">Haosail Kenya</div>
+		<div class="nav-links">
+			<a href="#aboutus">About</a>
+			<a href="#services">Services</a>
+			<a href="#contacts">Contacts</a>
+		</div>
+		<a href="tel:+254750707038" class="cta"><i class="fa fa-phone"></i> Call Now</a>
+	</div>
+
 	<!-- Banner -->
 	<section id="banner" data-video="images/banner">
 		<div class="inner">
 			<header>
 				<img src="images/logo.png" alt="">
 				<h1>Welcome to haosail kenya</h1>
-				<p>Haosail Machinery Co., Ltd. Is a multinational company. We manufacture equipment and machines in China and open our own brand stores abroad to serve local customers. Not only do we sell auto repair equipment, but also provide customers with complete solutions for auto repair business, including project layout design., One-stop purchase, installation, training and after-sales service.</p>
+				<p>home of auto repair machinery</p>
 			</header>
 			<a href="#main" class="more">Learn More</a>
 		</div>
@@ -125,7 +188,7 @@
 				<p>Haosail Machinery Co., Ltd. Is a multinational company. We manufacture equipment and machines in China and open our own brand stores abroad to serve local customers. Not only do we sell auto repair equipment, but also provide customers with complete solutions for auto repair business, including project layout design., One-stop purchase, installation, training and after-sales service.</p>
 			</div>
 			<!-- Boxes -->
-			<h1>Our services</h1>
+			<h1 id="services">Our services</h1>
 			<div class="thumbnails">
 				<div class="box" onclick="openmodal(0)">
 					<img src="images/autollllll.jpg" alt="" width="600" height="338"></a>
@@ -196,8 +259,8 @@
 				<p>OR click one below</p>
 
 				<ul class="icons">
-					<li><a href="https://api.whatsapp.com/send/?phone=254750707038&text=i%20wanted%20to%20ask%20about%20your%20products" class="fa fa-whatsapp"><span class="label"></span></a></li>
-					<li><a href="tel:+254750707038" class="fa fa-phone"><span class="label"></span></a></li>
+					<li><a href="https://api.whatsapp.com/send/?phone=254750707038&text=i%20wanted%20to%20ask%20about%20your%20products" class="fa fa-whatsapp"></a></li>
+					<li><a href="tel:+254750707038" class="fa fa-phone"></a></li>
 				</ul>
 			</div>
 		</footer><div class="copyright">

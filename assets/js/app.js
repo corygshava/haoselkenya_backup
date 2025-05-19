@@ -73,6 +73,17 @@ function animateheader(){
             heading: "Haosail Kenya",
             text: "Worth your trust"
         },
+        {
+            heading: "Empowering Kenya’s Auto Repair Industry",
+            text: "From high-quality equipment to complete workshop solutions — We deliver it all."
+        },
+        {
+            heading: "Your One-Stop Auto Repair Partner",
+            text: "Machines, setup, training & support — everything you need under one roof."
+        },{
+            heading: "China-Made Excellence, Locally Delivered",
+            text: "Haosail Kenya brings world-class auto repair solutions closer to you."
+        }
 
     ];
     let curtext = texts[curhead % texts.length];
@@ -89,18 +100,19 @@ function animateheader(){
     h1.animate([
         {opacity: 0,translate: '0 20px'},
         {opacity: 1,translate: '0 0'}
-    ],timedata)
+    ],timedata);
+
     subtxt.animate([
     {opacity: 0,translate: '0 -20px'},
     {opacity: 1,translate: '0 0'}
-    ],timedata)
+    ],timedata);
 
     curhead += 1;
 }
 
 setInterval(() => {
     animateheader();
-}, 4200);
+}, 7200);
 
 function setupPopups(){
     const phoneNumber = '254757748894';
