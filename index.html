@@ -123,9 +123,14 @@
 			color: #fff;
 			position: fixed;
 			top: 0;
-			z-index: 12;
+			z-index: 2;
 			width: 100%;
 			box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+		}
+		.topnav.starter{
+/*			background-color: #111111aa;*/
+			background-color: transparent;
+			background-image: linear-gradient(#111111aa,transparent);
 		}
 		.topnav .site-title {
 			font-size: 1.5rem;
@@ -144,7 +149,7 @@
 		.topnav .cta {
 			background-color: var(--themecolor);
 			padding: 0.5rem 1rem;
-			border-radius: 4px;
+			border-radius: 0px;
 			color: #fff;
 			text-decoration: none;
 			font-weight: bold;
@@ -157,7 +162,7 @@
 </head>
 
 <body id="top">
-	<div class="topnav">
+	<nav class="topnav starter">
 		<div class="site-title">Haosail Kenya</div>
 		<div class="nav-links">
 			<a href="#aboutus">About</a>
@@ -165,7 +170,7 @@
 			<a href="#contacts">Contacts</a>
 		</div>
 		<a href="tel:+254750707038" class="cta"><i class="fa fa-phone"></i> Call Now</a>
-	</div>
+	</nav>
 
 	<!-- Banner -->
 	<section id="banner" data-video="images/banner">

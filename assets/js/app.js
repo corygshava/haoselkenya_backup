@@ -1,6 +1,26 @@
+let hgt = undefined;
+let nav = undefined;
+
 document.addEventListener('DOMContentLoaded', () => {
     setupExtras();
     setupPopups();
+
+    hgt = document.createElement('div');
+    hgt.className = "heightguy";
+    nav = document.querySelector('nav');
+
+    document.body.appendChild(hgt);
+});
+
+window.addEventListener('scroll',(e) => {
+    let f = window.scrollY / hgt.offsetHeight;
+
+    f = f > 1 ? 1 : f;
+
+    let toadd = f >= 1 ? "normal w3-animate-top" : "starter";
+    // let toadd = f >= 1 ? "w3-green" : "w3-red";
+
+    nav.className = `topnav ${toadd}`;
 })
 
 function openmodal(x){
@@ -70,10 +90,6 @@ function animateheader(){
     let subtxt = header.querySelector('p');
     let texts = [
         {
-            heading: "Haosail Kenya",
-            text: "Worth your trust"
-        },
-        {
             heading: "Empowering Kenya’s Auto Repair Industry",
             text: "From high-quality equipment to complete workshop solutions — We deliver it all."
         },
@@ -115,7 +131,7 @@ setInterval(() => {
 }, 7200);
 
 function setupPopups(){
-    const phoneNumber = '254757748894';
+    const phoneNumber = '254750707038';
 
     const imgguyElements = document.querySelectorAll('.imgguy');
     const talklink = document.querySelector('.callus').querySelector('a');
@@ -153,14 +169,14 @@ function setupExtras() {
     let xtra = `
         <!-- the popup -->
         <div class="w3-container">
-            <div id="id01" class="w3-modal">
+            <div id="id01" class="w3-modal" style="z-index:7">
                 <button onclick="document.getElementById('id01').style.display = 'none'" class="w3-right w3-button w3-black" style="
-    z-index: 120;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    "><i class="fa fa-times"></i></button>
+                    z-index: 7;
+                    display: inline-block;
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    "><i class="fa fa-times"></i></button>
                 <div class="w3-modal-content w3-animate-zoom">
                     <div class="collection auto_repair">
                         <h1>Auto repair</h1>
