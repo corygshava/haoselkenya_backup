@@ -58,9 +58,8 @@ function openmodal(x){
         el.style.scale = 0;
 
         let timingdata = {
+            ...timedata,
             duration: 400,
-            easing: "ease-out",
-            fill:"forwards",
             delay: del
         };
         el.animate([
