@@ -1,5 +1,7 @@
+[done]
 write me a js code that will select all elements called .imgguy. it will add a data-mylink property to each which will be a whatsapp link to be sent to a certain number
 
+[undone]
 make me a simple page that will tell the visitor that a certain website currently under maintenance and will be back after some time. include a newsletter section that will allow them to subscribe to the watchlist so that they can be the first to know if anything changes
 
 make me a simple php page that uses php to get an email passed via post. the code should add the email to a json file at 'databank/subscriptions.json' also make it that after adding it it tries to send an email to 'mufasaking@duck.com' from an email account 'info@kamiru.com'. make it use a try catch block and to display the exact error in the email sending procedure. make it that it uses an if else structure for displaying specific errors at each section of the code.
