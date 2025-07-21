@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moving Circles Canvas</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; background: #f0f0f0; }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+
+<script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Fullscreen canvas
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const circles = [];
+
+    // Function to spawn a new circle
+    function spawnCircle(x, y, radius, duration) {
+        circles.push({
+            x: x,
+            y: y,
+            radius: radius,
+            startX: x,
+            endX: canvas.width + radius, // move off-screen
+            startTime: performance.now(),
+            duration: duration
+        });
+    }
+
+    // Spawn a few circles for demo
+    spawnCircle(50, 100, 20, 5000); // 5 seconds
+    spawnCircle(100, 200, 30, 3000); // 3 seconds
+    spawnCircle(150, 300, 25, 4000); // 4 seconds
+
+    function update() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const now = performance.now();
+
+        for (let i = circles.length - 1; i >= 0; i--) {
+            const c = circles[i];
+            const elapsed = now - c.startTime;
+
+            if (elapsed >= c.duration) {
+                c.x = c.endX;
+                // Remove circle once done moving (optional)
+                circles.splice(i, 1);
+                continue;
+            }
+
+            const progress = elapsed / c.duration;
+            c.x = c.startX + (c.endX - c.startX) * progress;
+
+            // Draw circle
+            ctx.beginPath();
+            ctx.arc(c.x, c.y, c.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'steelblue';
+            ctx.fill();
+        }
+
+        requestAnimationFrame(update);
+    }
+
+    update();
+</script>
+</body>
+</html>

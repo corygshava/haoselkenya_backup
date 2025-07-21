@@ -1,0 +1,9 @@
+fixed
+    nav
+    banner
+
+fixing
+    hero
+
+to fix
+    section

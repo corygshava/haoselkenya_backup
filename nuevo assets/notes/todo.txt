@@ -1,0 +1,5 @@
+done
+
+todo
+    make it that the banner dissapears on scroll down
+    make it that the nav changes class to scrolled on scroll down {like in Nima}

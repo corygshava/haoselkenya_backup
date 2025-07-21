@@ -110,31 +110,54 @@
 
 	<link rel="stylesheet" href="nuevo assets/css/fonts.css" />
 	<link rel="stylesheet" href="nuevo assets/css/common.css" />
+	<link rel="stylesheet" href="nuevo assets/css/fa-all.css" />
 	<link rel="stylesheet" href="assets/css/w3.css" />
 
+	<script src="nuevo assets/js/SuperScript.js"></script>
 	<script src="nuevo assets/js/app.js"></script>
+
+	<style>
+		/* unv--------- */
+		/* ---------- 10. Banner ---------- */
+		.banner{
+			background:linear-gradient(80deg,var(--clr-accent),var(--clr-primary));
+			color:var(--clr-bg);
+			text-align:center;
+			padding:.75rem 1rem;
+			font-weight:600;
+			width: 100%;
+			z-index: 16;
+		}
+		.banner a{
+			color: #fff;
+		}
+
+	</style>
 </head>
 
 <body>
-	<!-- Announcement Banner -->
+    <!-- <div class="themetag w3-block w3-center invis">Site fully loaded</div> -->
 
 	<!-- Navigation -->
-	<nav>
+	<nav class="">
 		<div class="navcon">
 			<div class="logo">
 				<a href="#" class="logo">Haosel</a>
 			</div>
 
-			<div class="nav-links" id="navLinks">
+			<div class="navlinks" id="sitelinks" data-visibledata="0,0,1">
 				<a href="#about">About</a>
-				<a href="#services">Services</a>
+				<a href="#services" class="active">Services</a>
 				<a href="#work">Work</a>
 				<a href="#pricing">Pricing</a>
 				<a href="#contact">Contact</a>
 			</div>
 
 			<div>
-				<a href="#contact" class="btn cta-btn">Start Project</a>
+				<a href="#contact" class="btn cta-btn">
+					<i class="fa fa-phone"></i>
+					Reach out
+				</a>
 			</div>
 
 			<div class="hamburger smallmenu w3-hide-large" id="hamburger">
@@ -143,14 +166,17 @@
 		</div>
 	</nav>
 
-	<div class="banner w3-hide" id="curbanner">
-		🎉 New: Introducing our AI-powered data anylytics package. <a href="#pricing">Learn more →</a>
+	<div class="banner w3-top flowline gap-sm" id="curbanner">
+		<div class="thetext">
+			🎉 New: Introducing our AI-powered data anylytics package.
+		</div>
+		<a href="#pricing">Learn more →</a>
 	</div>
 
 	<!-- Hero -->
-	<section class="hero section" id="home" data-widthset="100vh-#curbanner">
-		<div class="container flow center fullheight">
-			<h1>We build websites that earn trust</h1>
+	<section class="hero section" id="home">
+		<div class="container flow center fullheight gap-md">
+			<span class="hedtxt">We build <b>Systems</b><br> that <b>grow businesses</b></span>
 			<p>Enterprise-grade development with the transparency of a partner you can count on.</p>
 			<div class="btn-group">
 				<a href="#pricing" class="btn btn-primary">View Plans</a>
@@ -161,13 +187,66 @@
 
 	<!-- About / Image-Text -->
 	<section class="section grid-50-50 container" id="about">
+		<div data-visibledata="1,1,0">
+			<!-- for mobile screens -->
+			<img src="nuevo assets/img/Leonardo_Vision_XL_A_modern_minimalistic_hero_image_for_a_webs_3.jpg" alt="Team collaborating">
+		</div>
 		<div class="flow left">
-			<h2>Why clients choose Haosel</h2>
-			<p>From startups to Fortune 500s, we translate complex needs into fast, secure, and scalable web experiences. Every line of code is reviewed, tested, and documented—because reliability isn’t optional.</p>
-			<i>Your Website Is Prime Real Estate — Let’s Build a Property Worth Visiting.</i>
+			<span class="hedtxt2"><b>Why</b> clients choose <b>Haosel</b></span>
+			<p>
+				from <b>startups</b> to <b>freelancers</b> to established businesses, we have all in one web soludions and automations for all types of businesses.
+			</p>
+			<i>Your Website Is Prime Real Estate, Let’s Build a Property Worth Visiting.</i>
 			<a href="#services" class="btn btn-outline">Explore Services</a>
 		</div>
-		<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=60" alt="Team collaborating">
+		<div data-visibledata="0,0,1">
+			<!-- for large screens -->
+			<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=60" alt="Team collaborating">
+		</div>
+	</section>
+
+	<!-- services -->
+	<section class="section container" id="services">
+		<span class="hedtxt2 w3-center">our <b>Services</b></span>
+
+		<div class="grid-30-70 servicepanel">
+			<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=60" alt="Code editor">
+			<div class="flow">
+				<span class="hedtxt3">Web Development</span>
+				<p>Full-stack development using TypeScript, React, Node.js, and Next.js with optimized CMS integration.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Portfolio Section -->
+	<section class="section container" id="work">
+		<h2 class="text-center">Our Work</h2>
+		<p class="text-center" style="margin-bottom: 3rem;">Some of the websites we've built for forward-thinking brands.</p>
+		<div class="portfolio-grid">
+			<div class="portfolio-card">
+				<img src="https://picsum.photos/id/102/600/360/" alt="Project 1">
+				<div class="portfolio-content">
+					<h3>NextGen SaaS Site</h3>
+					<p>Built with Next.js, Headless CMS & blazing speed optimization.</p>
+					<div class="btn-group">
+						<a href="https://example.com/project1" target="_blank" class="btn btn-outline">Visit Site</a>
+						<button class="btn btn-primary" onclick="openModal('modal1')">Details</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="portfolio-card">
+				<img src="https://picsum.photos/id/102/600/360/" alt="Project 2">
+				<div class="portfolio-content">
+					<h3>E-Commerce Redesign</h3>
+					<p>Modern Shopify storefront with clean UX and high conversions.</p>
+					<div class="btn-group">
+						<a href="https://example.com/project2" target="_blank" class="btn btn-outline">Visit Site</a>
+						<button class="btn btn-primary" onclick="openModal('modal2')">Details</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 </body>
 </html>
