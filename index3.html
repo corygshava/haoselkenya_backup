@@ -106,7 +106,7 @@
 	<!-- end of SEO -->
 
     <!-- <base href="../"> -->
-	<link rel="stylesheet" href="nuevo assets/css/kimi.css" />
+	<!-- <link rel="stylesheet" href="nuevo assets/css/kimi.css" /> -->
 
 	<link rel="stylesheet" href="nuevo assets/css/fonts.css" />
 	<link rel="stylesheet" href="nuevo assets/css/common.css" />
@@ -117,21 +117,6 @@
 	<script src="nuevo assets/js/app.js"></script>
 
 	<style>
-		/* unv--------- */
-		/* ---------- 10. Banner ---------- */
-		.banner{
-			background:linear-gradient(80deg,var(--clr-accent),var(--clr-primary));
-			color:var(--clr-bg);
-			text-align:center;
-			padding:.75rem 1rem;
-			font-weight:600;
-			width: 100%;
-			z-index: 16;
-		}
-		.banner a{
-			color: #fff;
-		}
-
 	</style>
 </head>
 
@@ -179,8 +164,8 @@
 			<span class="hedtxt">We build <b>Systems</b><br> that <b>grow businesses</b></span>
 			<p>Enterprise-grade development with the transparency of a partner you can count on.</p>
 			<div class="btn-group">
-				<a href="#pricing" class="btn btn-primary">View Plans</a>
-				<a href="#work" class="btn btn-outline">Our Work</a>
+				<a href="#pricing" class="btn primary">View Plans</a>
+				<a href="#work" class="btn outline">Our Work</a>
 			</div>
 		</div>
 	</section>
@@ -197,7 +182,7 @@
 				from <b>startups</b> to <b>freelancers</b> to established businesses, we have all in one web soludions and automations for all types of businesses.
 			</p>
 			<i>Your Website Is Prime Real Estate, Let’s Build a Property Worth Visiting.</i>
-			<a href="#services" class="btn btn-outline">Explore Services</a>
+			<a href="#services" class="btn outline">Explore Services</a>
 		</div>
 		<div data-visibledata="0,0,1">
 			<!-- for large screens -->
@@ -218,35 +203,220 @@
 		</div>
 	</section>
 
+	<section class="callout t1">
+		<div class="container">
+			<span class="hedtxt2">Invest in your business <b>Today</b></span>
+			<p>let us take your business to the next level</p>
+			<button class="btn outline">lets begin</button>
+		</div>
+	</section>
+
 	<!-- Portfolio Section -->
 	<section class="section container" id="work">
-		<h2 class="text-center">Our Work</h2>
-		<p class="text-center" style="margin-bottom: 3rem;">Some of the websites we've built for forward-thinking brands.</p>
-		<div class="portfolio-grid">
-			<div class="portfolio-card">
-				<img src="https://picsum.photos/id/102/600/360/" alt="Project 1">
-				<div class="portfolio-content">
+		<div class="w3-center">
+			<span class="hedtxt2 distance-md">our <b>Work</b></span>
+			<p class="text-center" style="margin-bottom: 3rem;">Some of the websites we've built for forward-thinking brands.</p>
+		</div>
+		<div class="card-grid">
+			<div class="thecard">
+				<img src="nuevo assets/img/Leonardo_Vision_XL_A_modern_minimalistic_hero_image_for_a_webs_3 (1).jpg" alt="Project 1">
+				<div class="card-content">
 					<h3>NextGen SaaS Site</h3>
 					<p>Built with Next.js, Headless CMS & blazing speed optimization.</p>
 					<div class="btn-group">
-						<a href="https://example.com/project1" target="_blank" class="btn btn-outline">Visit Site</a>
-						<button class="btn btn-primary" onclick="openModal('modal1')">Details</button>
+						<a href="https://example.com/project1" target="_blank" class="btn outline">Visit Site</a>
+						<button class="btn primary" onclick="openModal('modal1')">Details</button>
 					</div>
 				</div>
 			</div>
 
-			<div class="portfolio-card">
-				<img src="https://picsum.photos/id/102/600/360/" alt="Project 2">
-				<div class="portfolio-content">
+			<div class="thecard">
+				<img src="nuevo assets/img/Leonardo_Vision_XL_A_modern_minimalistic_hero_image_for_a_webs_3 (1).jpg" alt="Project 2">
+				<div class="card-content">
 					<h3>E-Commerce Redesign</h3>
 					<p>Modern Shopify storefront with clean UX and high conversions.</p>
 					<div class="btn-group">
-						<a href="https://example.com/project2" target="_blank" class="btn btn-outline">Visit Site</a>
-						<button class="btn btn-primary" onclick="openModal('modal2')">Details</button>
+						<a href="https://example.com/project2" target="_blank" class="btn outline">Visit Site</a>
+						<button class="btn primary" onclick="openModal('modal2')">Details</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="thecard">
+				<img src="nuevo assets/img/Leonardo_Vision_XL_A_modern_minimalistic_hero_image_for_a_webs_3 (1).jpg" alt="Project 2">
+				<div class="card-content">
+					<h3>E-Commerce Redesign</h3>
+					<p>Modern Shopify storefront with clean UX and high conversions.</p>
+					<div class="btn-group">
+						<a href="https://example.com/project2" target="_blank" class="btn outline">Visit Site</a>
+						<button class="btn primary" onclick="openModal('modal2')">Details</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<section class="section container" id="pricing">
+		<div class="w3-center">
+			<span class="hedtxt2">Our <b>Packages</b></span>
+			<p>We have various packages for any kind of business</p>
+		</div>
+		<div class="pricing-grid">
+			<div class="card-pricing">
+				<span class="hedtxt3">Starter</span>
+				<div>
+					<li>Landing page</li>
+					<li>Hosting</li>
+					<li>1 week delivery</li>
+				</div>
+				<div class="cte-holder">
+					<a href="#contact" class="btn outline">Get Started</a>
+				</div>
+			</div>
+			<div class="card-pricing main">
+				<span class="hedtxt3 themetxt">Growth</span>
+				<!-- <p class="price">20k - 25k</p> -->
+				<div>
+					<li><i>all starter features</i></li>
+					<li>Multi-page site</li>
+					<li>Performance tuned</li>
+					<li>2 weeks delivery</li>
+				</div>
+				<div class="cte-holder">
+					<a href="#contact" class="btn primary">Get Started</a>
+				</div>
+			</div>
+			<div class="card-pricing">
+				<span class="hedtxt3">Corporate</span>
+				<div>
+					<li><i>all growth features</i></li>
+					<li>SEO</li>
+					<li>SLA & 24/7 support</li>
+					<li>1-2 month delivery</li>
+					<li>Dedicated dev team</li>
+					<li>Admin panel</li>
+				</div>
+				<div class="cte-holder">
+					<a href="#contact" class="btn outline">Contact Sales</a>
+				</div>
+			</div>
+
+			<div class="card-pricing w3-hide">
+				<span class="hedtxt3">Enterprise</span>
+				<div>
+					<li><i>all corporate features</i></li>
+					<li>Data processing backend</li>
+					<li>Unlimited scale</li>
+					<li>Perpetual fixes</li>
+					<li>custom features</li>
+					<li>payment gateways</li>
+					<li>and more</li>
+				</div>
+				<div class="cte-holder">
+					<a href="#contact" class="btn outline">Contact Sales</a>
+				</div>
+			</div>
+			<div class="card-pricing w3-hide">
+				<span class="hedtxt3">Custom</span>
+				<div>
+					<li><i>pick your features</i></li>
+				</div>
+				<div class="cte-holder">
+					<a href="#contact" class="btn outline">Contact Sales</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="w3-center spacy-md">
+			<button class="btn outline">view more</button>
+		</div>
+	</section>
+
+	<section class="section container centroid gap-md" id="testimonials">
+		<div class="w3-center">
+			<span class="hedtxt2">Trusted by <b>industry leaders</b></span>
+		</div>
+
+		<div class="testimonial grid-30-70 gap-lg">
+			<div class="picture">
+				<img src="https://picsum.photos/640/360" class="person" alt="person's picture">
+			</div>
+			<div class="flow left gap-sm">
+				<div>“Haosel delivered a 40 % increase in conversions within two weeks of launch. Their QA processes are unmatched.”</div>
+				<cite>— Lisa Park, VP Product at FinTechInc</cite>
+			</div>
+		</div>
+
+		<div class="controls testimonial spacy-md">
+			<div class="progress">
+				<div class="bar"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section container" id="contact">
+		<div class="w3-center">
+			<span class="hedtxt2">Leave a <b>message</b></span>
+			<p>Whether it’s an <b>Inquiry</b> or <b>feedback</b>, we’d love to hear from you. Fill out the form and we’ll respond in due time.</p>
+		</div>
+		<div class="grid-50-50">
+			<div class="flow left">
+				<form action="submit.php" method="POST" class="flow left contact-form gap-md">
+					<input type="text" name="name" placeholder="Your Name" required>
+					<input type="email" name="email" placeholder="Your Email" required>
+					<textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+					<button class="btn primary" type="submit">Send Message <i class="fa fa-paper-plane"></i></button>
+				</form>
+			</div>
+			<img src="https://picsum.photos/id/77/600/360/" alt="Contact Us">
+		</div>
+	</section>
+
+	<section class="callout t2">
+		<div class="container">
+			<span class="hedtxt2">Invest in your business <b>Today</b></span>
+			<p>let us take your business to the next level</p>
+			<button class="btn outline">lets begin</button>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="footer-grid container">
+			<div>
+				<h4>Haosel Kenya Ltd.</h4>
+				<p>
+					Upper hill<br>
+					Nairobi, Kenya
+				</p>
+			</div>
+			<div>
+				<h4>Services</h4>
+				<div>
+					<li><a href="#">Web Development</a></li>
+					<li><a href="#">Performance Audits</a></li>
+					<li><a href="#">UI/UX Design</a></li>
+				</div>
+			</div>
+			<div>
+				<h4>Resources</h4>
+				<div>
+					<li><a href="#">Case Studies</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Support Docs</a></li>
+				</div>
+			</div>
+			<div>
+				<h4>Legal</h4>
+				<div>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Terms of Service</a></li>
+				</div>
+			</div>
+		</div>
+		<p class="text-center" style="margin-top:2rem;font-size:.875rem;color:var(--clr-text-muted)">
+			© <span id="year"></span> Haosel ltd. All rights reserved.
+		</p>
+	</footer>
 </body>
 </html>
