@@ -36,6 +36,7 @@ body{
 	color:var(--clr-text);
 	line-height:1.6;
 	margin: 0;
+	overflow-x: hidden;
 }
 
 /* UI KIT */
@@ -162,7 +163,7 @@ body{
 	}
 	.hedtxt{
 		font-weight: 800;
-		font-size: var(--size-mg);
+		font-size: min(var(--size-mg),9vw);
 		display: block;
 		width: 100%;
 	}
@@ -468,4 +469,10 @@ body{
 		height: var(--size-tn);
 		background: var(--themecolor);
 		width: 25%;
+	}
+
+	.stroked {
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: #fbc800;
+		font-weight: 800;
 	}
