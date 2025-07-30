@@ -17,6 +17,13 @@
 
 // UI components
 let scrollers = [];
+let heightguy = undefined;
+
+// runtime data
+let windowHeight = 0;
+
+// event data
+let latest_ScrollEvent = undefined;
 
 // Startup functions - these must run before everything else
 
@@ -59,11 +66,46 @@ let scrollers = [];
 		// scrollers
 		scrollers = document.querySelectorAll('[data-scroller]');
 		scrollers.forEach(el => {el.dataset['picker'] = 'scrollers';});
+
+		// height reference
+		heightguy = document.querySelector('.heightguy');
+		// windowHeight = heightguy.OffsetHeight;
+
+		// setup visibledata
+	    let items = undefined;
+	    // let items: Array = undefined;
+
+	    items = document.querySelectorAll('[data-visibledata]');
+
+	    items.forEach((el, id) => {
+	        // assumes the data is in the form 0,0,1
+	        let vizdata = el.dataset.visibledata.split(","),screen = ["small","medium","large"];
+	        let mid = 0,xclass = new Array();
+
+	        for (let x = 0; x < vizdata.length; x++) {
+	            let me = vizdata[x];
+	            let afix = parseInt(me) == 0 ? "hide" : "show";
+	            let wot = `w3-${afix}-${screen[x]}`;
+	            xclass.push(wot);
+	        }
+
+	        xclass.forEach(a => {
+	            el.classList.add(a);
+	        });
+	    })
+
+	    console.log(`done with visibledata, found ${items.length} ${plural("item",items.length)}`);
 	}
 
 	// handles scroller functionality
 	function handle_scrollers(e) {
 		// the idea is to run through all scrollers find out what to do once they are chosen and do it
+
+		// get current window scroll
+		let scrollY = window.scrollY;
+
+		// get scroll progress
+		let sfactor = 0.2;
 	}
 
 // runtime events and helpers
@@ -75,9 +117,21 @@ let scrollers = [];
 	})
 
 	window.addEventListener('scroll',event => {
-		console.log(event);
+		latest_ScrollEvent = event;
 		handle_scrollers(event);
 	})
+
+	/*
+	window.addEventListener('scroll',() => {
+		let con = window.scrollY >= (services.offsetTop - (heightguy.offsetHeight * .5));
+		let theclass = con ? "w3-red" : "w3-black";
+		let theotherclass = con ? "w3-black" : "w3-red";
+
+		services.classList.add(theclass);
+		services.classList.remove(theotherclass);
+	});
+	*/
+
 	function refreshUI(){
 		uis_init();
 	}
