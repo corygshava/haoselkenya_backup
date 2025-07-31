@@ -17,6 +17,7 @@
 
 // UI components
 let scrollers = [];
+let togglers = [];
 let heightguy = undefined;
 
 // runtime data
@@ -66,6 +67,18 @@ let latest_ScrollEvent = undefined;
 		// scrollers
 		scrollers = document.querySelectorAll('[data-scroller]');
 		scrollers.forEach(el => {el.dataset['picker'] = 'scrollers';});
+
+		// togglers
+		togglers = document.querySelectorAll('[data-toggler]');
+		togglers.forEach((el,id) => {
+			el.dataset.togglerid = id;
+
+			el.addEventListener('click',() => {
+				let a = el.dataset.onshow || "block";
+				let b = el.dataset.onhide || "none";
+				toggleShowB(el.dataset.toggler,a,b);
+			})
+		})
 
 		// height reference
 		heightguy = document.querySelector('.heightguy');
