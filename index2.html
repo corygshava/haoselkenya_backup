@@ -124,10 +124,10 @@
 </head>
 
 <body>
-    <!-- <div class="themetag w3-block w3-center invis">Site fully loaded</div> -->
+    <div class="themetag w3-block w3-center w3-hide">Site fully loaded</div>
 
 	<!-- Navigation -->
-	<nav class="">
+	<nav class="" data-scroller data-scrollend="80%" data-classdata="w3-animate-opacity,scrolled">
 		<div class="navcon">
 			<div class="logo">
 				<a href="#" class="logo">Haosel</a>
@@ -154,16 +154,17 @@
 		</div>
 	</nav>
 
-	<div class="w3-hide banner w3-top flowline gap-sm" id="curbanner" data-scroller="">
+	<div class="w3-hide banner w3-top flowline gap-sm" id="curbanner" data-scroller="" data-scrollstart="30%" data-scrollend="me">
 		<div class="thetext">
 			🎉 New: Introducing our AI-powered data anylytics package.
 		</div>
 		<a href="#pricing">Learn more →</a>
 	</div>
 
-	<div class="banner w3-top flowline gap-sm" id="curbanner" data-scroller="">
+	<div class="banner w3-top flowline gap-sm" id="wipbanner" data-scroller data-scrollend="80%" data-classdata="w3-animate-opacity,hidetop">
 		<div class="thetext">
-			<i>Work in progress</i>
+			<i>Work in progress</i>, Some features have been disabled for security
+			<span class="logger_not"></span>
 		</div>
 	</div>
 

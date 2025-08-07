@@ -40,3 +40,12 @@
 .showme{
 	display: block !important;
 }
+
+.halfopac{
+	/*opacity: 0.3;*/
+	visibility: hidden;
+}
+.hidetop{
+	translate: 0 -12px;
+	opacity: 0;
+}

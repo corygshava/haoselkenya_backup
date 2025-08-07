@@ -284,7 +284,7 @@ body{
 			gap:var(--size-md);
 		}
 		.card-pricing {
-			flex: 0 0 max(350px, 24vw);
+			flex: 0 0 max(320px, 28vw);
 			width: 100%;
 			background: var(--clr-panelbg);
 			border: 1px solid var(--seccolor);

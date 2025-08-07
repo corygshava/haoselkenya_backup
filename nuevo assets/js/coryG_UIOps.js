@@ -2,6 +2,7 @@
 	* Author: Cornelius Shava
 	* Organisation: Haosel Kenya
 	* Date: 27/07/2025
+	* last modified: 07/08/2025
 	* Time: 2:59
 	* Email: corygprod@duck.com
 	* File: coryG_UIOps.js
@@ -15,13 +16,19 @@
 		also its alot easier to change via css than over here so no need to go through the trouble
 */
 
+// selectors
+let partselector = '.part';		// the selector that defines a section of a page
+
 // UI components
 let scrollers = [];
 let togglers = [];
+let pageparts = [];
 let heightguy = undefined;
 
 // runtime data
 let windowHeight = 0;
+let default_offset = 60;		// the default % of the item scrolled in before a scrolltrigger is activated
+let current_item = undefined	// the current item in view
 
 // event data
 let latest_ScrollEvent = undefined;
@@ -64,9 +71,21 @@ let latest_ScrollEvent = undefined;
 	function uis_init() {
 		console.log("running initialiser");
 
+		// get UX critical parts
+
 		// scrollers
 		scrollers = document.querySelectorAll('[data-scroller]');
 		scrollers.forEach(el => {el.dataset['picker'] = 'scrollers';});
+
+		// page parts
+		pageparts = document.querySelectorAll(partselector);
+
+		// height reference
+		heightguy = document.querySelector('.heightguy');
+		windowHeight = heightguy.offsetHeight;
+
+		// UI aftereffects (sanitisers)
+		let items = undefined;
 
 		// togglers
 		togglers = document.querySelectorAll('[data-toggler]');
@@ -79,35 +98,85 @@ let latest_ScrollEvent = undefined;
 				toggleShowB(el.dataset.toggler,a,b);
 			})
 		})
-
-		// height reference
-		heightguy = document.querySelector('.heightguy');
-		// windowHeight = heightguy.OffsetHeight;
+		items = togglers;
+		console.log(`done with togglers, found ${items.length} ${plural("item",items.length)}`);
 
 		// setup visibledata
-	    let items = undefined;
-	    // let items: Array = undefined;
+		// let items: Array = undefined; // for better intellisense, disable before running
 
-	    items = document.querySelectorAll('[data-visibledata]');
+		items = document.querySelectorAll('[data-visibledata]');
 
-	    items.forEach((el, id) => {
-	        // assumes the data is in the form 0,0,1
-	        let vizdata = el.dataset.visibledata.split(","),screen = ["small","medium","large"];
-	        let mid = 0,xclass = new Array();
+		items.forEach((el, id) => {
+			// assumes the data is in the form 0,0,1
+			let vizdata = el.dataset.visibledata.split(","),screen = ["small","medium","large"];
+			let mid = 0,xclass = new Array();
 
-	        for (let x = 0; x < vizdata.length; x++) {
-	            let me = vizdata[x];
-	            let afix = parseInt(me) == 0 ? "hide" : "show";
-	            let wot = `w3-${afix}-${screen[x]}`;
-	            xclass.push(wot);
-	        }
+			for (let x = 0; x < vizdata.length; x++) {
+				let me = vizdata[x];
+				let afix = parseInt(me) == 0 ? "hide" : "show";
+				let wot = `w3-${afix}-${screen[x]}`;
+				xclass.push(wot);
+			}
 
-	        xclass.forEach(a => {
-	            el.classList.add(a);
-	        });
-	    })
+			xclass.forEach(a => {
+				el.classList.add(a);
+			});
+		})
 
-	    console.log(`done with visibledata, found ${items.length} ${plural("item",items.length)}`);
+		console.log(`done with visibledata, found ${items.length} ${plural("item",items.length)}`);
+
+		items = scrollers;
+		items.forEach((el,id) => {
+			/* note that
+				* ton% are relative to the object
+				* n% are absolute
+			*/
+			let startat = el.dataset.scrollstart !== undefined ? el.dataset.scrollstart : 'me';
+			let endat = el.dataset.scrollend !== undefined ? el.dataset.scrollend : '0%';
+			let mytop = el.offsetTop;
+			let s_height = el.scrollHeight;
+			let scrollspace = mytop + s_height;
+
+			el.dataset.debugdata = `${startat} / ${windowHeight}`;
+			console.log("why the fak")
+
+			// sanitises scrollstart
+			if(startat == "me"){
+				startat = mytop;
+			} else if(startat.includes('to')){
+				// conclude later
+				// object relative scrollstart
+				let tmp_str = startat.substr(2,startat.length);
+				el.dataset.debugdata += ` | ${startat} -> ${tmp_str}`;
+				startat = getval(tmp_str,s_height) + mytop;
+				el.dataset.debugdata += ` | ${startat} -> ${getval('12%',100)}`;
+			} else if(startat.includes('%')){
+				el.dataset.debugdata += ` | ${startat}`;
+				startat = getval(startat,windowHeight);
+				el.dataset.debugdata += ` | ${startat} -> ${getval('12%',100)}`;
+			}
+
+			// fix to make it consistent with what i said earlier
+			// sanitises scrollend
+			if(endat == "me"){
+				endat = scrollspace;
+			} else if(endat.includes('to')){
+				// conclude later
+				// object relative scrollend
+				let tmp_str = startat.substr(2,startat.length);
+				el.dataset.debugdata += ` [ender] : ${endat} -> ${tmp_str}`;
+				endat = getval(tmp_str,scrollspace);
+				el.dataset.debugdata += ` | ${endat}`;
+			} else if(endat.includes('%')){
+				el.dataset.debugdata += ` [ender] : ${endat}`;
+				endat = getval(endat,(mytop + windowHeight));
+				el.dataset.debugdata += ` | ${endat}`;
+			}
+
+			el.dataset.mytop = mytop;
+			el.dataset.scrollstart = startat;
+			el.dataset.scrollend = endat;
+		})
 	}
 
 	// handles scroller functionality
@@ -115,10 +184,81 @@ let latest_ScrollEvent = undefined;
 		// the idea is to run through all scrollers find out what to do once they are chosen and do it
 
 		// get current window scroll
-		let scrollY = window.scrollY;
+		let scrollAmt = window.scrollY;
 
-		// get scroll progress
-		let sfactor = 0.2;
+		windowHeight = heightguy.offsetHeight;
+
+		let absolute_sfactor = (scrollAmt / windowHeight);
+		// console.log(`${scrollAmt} / ${windowHeight} = ${absolute_sfactor}`);
+
+		// handle logic for page parts
+		pageparts.forEach(el => {
+			let mytop = el.offsetTop;
+			let offset = default_offset;
+
+			if(item.dataset.scrolloffset){
+				offset = Number(item.dataset.scrolloffset);
+			}
+
+			if(scrollAmt >= sectiontop - Number(offset)){
+				current_item = el;
+
+				if(item.dataset.scrollalive != null && item.dataset.function != null){
+					if(item.dataset.hasrun == null || item.dataset.alwaysrun == "yes"){
+						let tm = item.dataset.function || "none";
+						item.dataset.hasrun = "yes";
+
+						// integrate later
+						// handlecode(tm,item);
+					}
+				}
+			}
+		});
+
+		// for the scrollbys
+		scrollers.forEach(el => {
+			let logger = el.querySelector('.logger');
+
+			let s_start = Number(el.dataset.scrollstart);
+			let s_end = Number(el.dataset.scrollend);
+			let s_classes = el.dataset.classdata;
+
+			let isvalid = (scrollAmt < s_end) && (scrollAmt >= s_start)
+			let s_prg = 0;
+			let theclass = "ddr5";
+			let otherclass = "ddr3";
+
+			if(isvalid){
+				s_prg = scrollAmt / s_end;
+			}
+
+			if(el.dataset.classtoggle != undefined && isvalid){
+				// el.classList.add(el.dataset.classtoggle);
+			}
+
+			if(s_classes != undefined){
+				let theid = isvalid ? 0 : 1;
+				let otherid = (theid + 1) % 2;
+				let tmpcls = s_classes.includes(",") ? s_classes.split(",") : [s_classes,""];
+				theclass = tmpcls[theid];
+				otherclass = tmpcls[otherid];
+
+				if(el.className.includes(otherclass)){
+					el.classList.remove(otherclass);
+				}
+				if(!el.className.includes(theclass)){
+					if(el.className == ""){
+						el.className = theclass;
+					} else {
+						el.classList.add(theclass);
+					}
+				}
+			}
+
+			if(logger){
+				logger.innerHTML = `[${isvalid}] ${s_prg * 100}% | ${s_classes} -> ${theclass} / ${otherclass} [${el.className}]`;
+			}
+		})
 	}
 
 // runtime events and helpers
@@ -130,21 +270,36 @@ let latest_ScrollEvent = undefined;
 	})
 
 	window.addEventListener('scroll',event => {
+		// for inspection purposes
 		latest_ScrollEvent = event;
 		handle_scrollers(event);
 	})
 
-	/*
-	window.addEventListener('scroll',() => {
-		let con = window.scrollY >= (services.offsetTop - (heightguy.offsetHeight * .5));
-		let theclass = con ? "w3-red" : "w3-black";
-		let theotherclass = con ? "w3-black" : "w3-red";
-
-		services.classList.add(theclass);
-		services.classList.remove(theotherclass);
-	});
-	*/
-
 	function refreshUI(){
 		uis_init();
 	}
+
+
+// reusables (add to toappend.js later)
+	function getval(tx,n) {
+		let res = 0;
+		let amt = Number(tx.substr(0,tx.length - 1));
+
+
+		// basically tx% of n
+		if(tx.includes('%')){
+			res = n * (amt / 100);
+		}
+
+		// console.log(`getval : ${amt} * ${n} -> ${res}`);
+
+		return res;
+	}
+
+	function openlink(link) {
+		window.open(link,"_blank")
+	}
+
+/* TODO
+	* any shit to do goes here
+*/
